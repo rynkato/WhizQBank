@@ -2,7 +2,10 @@
 
     include "php/Whiz.php";
 
+    session_start();
+
     $Whiz = new Whiz();
+
 
 ?>
 
@@ -32,6 +35,42 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10">
+
+                        <?php
+
+                            if(isset($_SESSION['User_Type'])) {
+                                if($_SESSION['User_Type'] === "STUDENT") {
+                                    echo "Student: " . $_SESSION["User_Email"];
+                                } elseif($_SESSION['User_Type'] === "PARENT") {
+                                    echo "Parent: " . $_SESSION["User_Email"];
+                                }
+
+                            } else {
+                                $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
+                            }
+
+                            if(isset($_POST['btn_login'])) {
+                                $email = $_POST['email_input'];
+                                $pswd = $_POST['password_input'];
+
+                                $response = $Whiz->getCredentials()->getLogin()->login($email, $pswd);
+
+                                if(!$response['error']) {
+                                    if(isset($_SESSION['User_Type'])) {
+                                        if($_SESSION['User_Type'] === "STUDENT") {
+                                            echo "Student: " . $_SESSION["User_Email"];
+                                        } elseif($_SESSION['User_Type'] === "PARENT") {
+                                            echo "Parent: " . $_SESSION["User_Email"];
+                                        }
+                                    } else {
+                                        $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
+                                    }
+                                } else {
+                                    echo $Whiz->getAlerts()->sendErrorMessage($response['message']);
+                                }
+                            }
+                        ?>
+
                         <div class="mt-4">
                             <img src="assets/images/logo.png" width="30px" alt="Whiz QBank"/>
                             <h1 class="mt-4 ml-2 navbar-brand">Whiz QBank</h1>
@@ -42,13 +81,13 @@
                             <form method="post">
                                 <div class="input-field mt-5">
                                     <i class="far fa-envelope prefix"></i>
-                                    <input id="email_input" type="email" class="validate w-75"/>
+                                    <input id="email_input" name="email_input" type="email" class="validate w-75"/>
                                     <label for="email_input">Email Address</label>
                                 </div>
 
                                 <div class="input-field mt-4">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input id="password_input" type="password" class="validate w-75"/>
+                                    <input id="password_input" name="password_input" type="password" class="validate w-75"/>
                                     <label for="password_input">Password</label>
                                 </div>
 
@@ -97,7 +136,18 @@
         </div>
 
 
-        <?php echo $Whiz->getUI()->getMaterialScripts(); ?>
+        <?php
+        echo $Whiz->getUI()->getBootstrapScripts();
+        echo $Whiz->getUI()->getMaterialScripts();
+
+        ?>
+        <script>
+            $(document).ready(function(){
+                setTimeout(function() {
+                    $(".alert").alert('close');
+                }, 2000);
+            });
+        </script>
     </body>
 
 </html>

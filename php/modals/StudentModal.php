@@ -3,29 +3,32 @@
 
 class StudentModal {
 
-    public $studentID, $studentName, $studentEmail, $studentDOB;
+    function getStudentInformation($info) {
+        if(isset($_SESSION["UserType"]) && isset($_SESSION["User_Email"])) {
+            if($_SESSION["UserType"] === "STUDENT") {
+                $DatabaseHandler = new DatabaseHandler();
+                $connection = $DatabaseHandler->getMySQLiConnection();
 
-    function __construct($id, $name, $email, $dob) {
-        $this->studentID = $id;
-        $this->studentName = $name;
-        $this->studentEmail = $email;
-        $this->studentDOB = $dob;
-    }
+                $sql = "SELECT * FROM qbank_users_students WHERE Email_Address='" . $_SESSION['User_Email'] . "'";
+                $statement = $connection->query($sql);
 
-    function getStudentID() {
-        return $this->studentID;
-    }
-
-    function getStudentName() {
-        return $this->studentName;
-    }
-
-    function getStudentEmail() {
-        return $this->studentEmail;
-    }
-
-    function getStudentDateOfBirth() {
-        return $this->studentDOB;
+                if($statement->num_rows > 0) {
+                    $response['error'] = false;
+                    while($row = $statement->fetch_assoc()) {
+                        $response['data'] = $row[$info];
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = "There was an error while trying to connect to the database.";
+                }
+            } else {
+                $response['error'] = true;
+                $response['message'] = "You're not a student. What are you? :o";
+            }
+        } else {
+            $response['error'] = true;
+            $response['message'] = "It seems like there was an issue with the sessions. Try to log in again :)";
+        }
     }
 
 }

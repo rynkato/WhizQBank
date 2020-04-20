@@ -8,6 +8,8 @@ class Login {
     function login($email, $pswd) {
         $pswdHash = "";
 
+        $Whiz = new Whiz();
+
         $DatabaseHandler = new DatabaseHandler();
         $connection = $DatabaseHandler->getMySQLiConnection();
 
@@ -16,23 +18,16 @@ class Login {
         $statementS = $connection->query($sqlS);
 
         if($statementS->num_rows > 0) {
-            $idFromDB = 0;
-            $nameFromDB = "";
-            $emailFromDB = "";
-            $dobFromDB = "";
 
             while($row = $statementS->fetch_assoc()) {
                 $pswdHash = $row["Password_Hash"];
-
-                $idFromDB = $row["ID"];
-                $nameFromDB = $row["Full_Name"];
-                $emailFromDB = $row["Email_Address"];
-                $dobFromDB = $row["DOB"];
             }
 
             if(password_verify($pswd, $pswdHash)) {
                 $response['error'] = false;
-                $response['StudentModal'] = new StudentModal($idFromDB, $nameFromDB, $emailFromDB, $dobFromDB);
+
+                $Whiz->getCredentials()->getSessions()->setSession("User_Type", "STUDENT");
+                $Whiz->getCredentials()->getSessions()->setSession("User_Email", $email);
             } else {
                 $response['error'] = true;
                 $response['message'] = "The password entered is incorrect.";
@@ -43,23 +38,16 @@ class Login {
             $statementP = $connection->query($sqlP);
 
             if($statementP->num_rows > 0) {
-                $idFromDB = 0;
-                $nameFromDB = "";
-                $emailFromDB = "";
-                $childIDFromDB = "";
 
-                while($row = $statementS->fetch_assoc()) {
+                while($row = $statementP->fetch_assoc()) {
                     $pswdHash = $row["Password_Hash"];
-
-                    $idFromDB = $row["ID"];
-                    $nameFromDB = $row["Full_Name"];
-                    $emailFromDB = $row["Email_Address"];
-                    $childIDFromDB = $row["Child_ID"];
                 }
 
                 if(password_verify($pswd, $pswdHash)) {
                     $response['error'] = false;
-                    $response['ParentModal'] = new ParentModal($idFromDB, $nameFromDB, $emailFromDB, $childIDFromDB);
+
+                    $Whiz->getCredentials()->getSessions()->setSession("UserType", "PARENT");
+                    $Whiz->getCredentials()->getSessions()->setSession("User_Email", $email);
                 } else {
                     $response['error'] = true;
                     $response['message'] = "The password entered is incorrect.";
@@ -77,5 +65,4 @@ class Login {
 
         return $response;
     }
-
 }

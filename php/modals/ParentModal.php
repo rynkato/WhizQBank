@@ -3,29 +3,32 @@
 
 class ParentModal {
 
-    public $parentID, $parentName, $parentEmail, $childID;
+    function getParentInformation($info) {
+        if(isset($_SESSION["UserType"]) && isset($_SESSION["User_Email"])) {
+            if($_SESSION["UserType"] === "PARENT") {
+                $DatabaseHandler = new DatabaseHandler();
+                $connection = $DatabaseHandler->getMySQLiConnection();
 
-    function __construct($id, $name, $email, $cID) {
-        $this->parentID = $id;
-        $this->parentName = $name;
-        $this->parentEmail = $email;
-        $this->childID = $cID;
-    }
+                $sql = "SELECT * FROM qbank_users_parents WHERE Email_Address='" . $_SESSION['User_Email'] . "'";
+                $statement = $connection->query($sql);
 
-    function getParentID() {
-        return $this->parentID;
-    }
-
-    function getParentName() {
-        return $this->parentName;
-    }
-
-    function getParentEmail() {
-        return $this->parentEmail;
-    }
-
-    function getChildID() {
-        return $this->childID;
+                if($statement->num_rows > 0) {
+                    $response['error'] = false;
+                    while($row = $statement->fetch_assoc()) {
+                        $response['data'] = $row[$info];
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = "There was an error while trying to connect to the database.";
+                }
+            } else {
+                $response['error'] = true;
+                $response['message'] = "You're not a parent. What are you? :o";
+            }
+        } else {
+            $response['error'] = true;
+            $response['message'] = "It seems like there was an issue with the sessions. Try to log in again :)";
+        }
     }
 
 }

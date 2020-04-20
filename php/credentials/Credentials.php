@@ -2,6 +2,7 @@
 
 include_once 'Login.php';
 include_once 'Register.php';
+include_once 'Sessions.php';
 
 class Credentials {
 
@@ -11,6 +12,10 @@ class Credentials {
 
     function getRegister() {
         return new Register();
+    }
+
+    function getSessions() {
+        return new Sessions();
     }
 
 }

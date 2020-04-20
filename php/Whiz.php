@@ -8,8 +8,13 @@ include_once 'settings/Messages.php';
 // Custom Classes
 include_once 'ui/Alerts.php';
 include_once 'ui/UI.php';
+
 include_once 'DatabaseHandler.php';
+
 include_once 'credentials/Credentials.php';
+
+include_once 'modals/ParentModal.php';
+include_once 'modals/StudentModal.php';
 
 class Whiz {
 
