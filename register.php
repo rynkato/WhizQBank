@@ -58,8 +58,6 @@
 
                                             $studentIDResponse = $Whiz->getCredentials()->getRegister()->getStudentID($responseStudent['studentEmail']);
 
-                                            echo $responseStudent['studentEmail'] . ": " . $studentIDResponse['error'] . ": " . $studentIDResponse['studentID'];
-
                                             if(!$studentIDResponse['error']) {
                                                 $responseParent = $Whiz->getCredentials()->getRegister()->registerParent($studentIDResponse['studentID'], $pname, $pemail, $ppswd);
 
