@@ -1,3 +1,7 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .input-field input:focus + label {
     color: #5e72e4 !important;
 }
@@ -19,4 +23,23 @@
 
 .input-field .prefix.active {
     color: #5e72e4 !important;
+}
+
+/* Date Picker */
+.datepicker-date-display {
+    background-color: #5e72e4;
+}
+
+.datepicker-calendar-container {
+    color: black;
+}
+.is-today {
+    color: #5e72e4 !important;
+
+}
+.datepicker-table td.is-selected {
+    background: #5e72e4 !important;
+}
+.datepicker-cancel, .datepicker-done {
+    color: #5e72e4;
 }

@@ -1,0 +1,98 @@
+/* Animations */
+.fade-in-page {
+    animation: fadeIn ease 0.65s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Background Colours */
+.bg-purple {
+    background: #5e72e4;
+}
+
+
+/* Text Colours */
+.text-purple {
+    color: #5e72e4;
+}
+
+
+/* Buttons */
+.btn-purple {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-purple:hover {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-purple:focus, .btn-purple.focus {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-purple.disabled, .btn-purple:disabled {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active, .btn-purple:not(:disabled):not(.disabled).active,
+.show > .btn-purple.dropdown-toggle {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-purple:not(:disabled):not(.disabled):active:focus, .btn-purple:not(:disabled):not(.disabled).active:focus,
+.show > .btn-purple.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #5e72e4;
+}
+
+.btn-outline-purple {
+    color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-outline-purple:hover {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-outline-purple:focus, .btn-outline-purple.focus {
+    box-shadow: 0 0 0 0.2rem #5e72e4;
+}
+
+.btn-outline-purple.disabled, .btn-outline-purple:disabled {
+    color: #5e72e4;
+    background-color: transparent;
+}
+
+.btn-outline-purple:not(:disabled):not(.disabled):active, .btn-outline-purple:not(:disabled):not(.disabled).active,
+.show > .btn-outline-purple.dropdown-toggle {
+    color: #fff;
+    background-color: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.btn-outline-purple:not(:disabled):not(.disabled):active:focus, .btn-outline-purple:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-purple.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #5e72e4;
+}
