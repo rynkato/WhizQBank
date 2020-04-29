@@ -96,3 +96,9 @@
 .show > .btn-outline-purple.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem #5e72e4;
 }
+
+.outline-orange {
+    color: transparent;
+    border: 0.1rem solid #fb6340;
+    border-radius: 5px;
+}

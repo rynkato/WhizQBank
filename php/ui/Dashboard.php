@@ -84,26 +84,22 @@ class Dashboard {
                     <a class='nav-link " . $string[0] . "' href=' ./dashboard.php'> <i class='ni ni-tv-2 text-indigo'></i> Dashboard
                     </a>
                 </li>
-                
-                <!-- Hide Company Link
                 <li class='nav-item'>
-                    <a class='nav-link " . $string[1] . "' href='./company.php'>
-                        <i class='fa fa-building text-blue'></i> Company
+                    <a class='nav-link " . $string[1] . "' href=' ./points.php'> <i class='fas fa-medal text-orange'></i> Points
                     </a>
                 </li>
-                -->
             </ul>
             <hr class='my-3'>
-            <h6 class='navbar-heading text-muted'>Inventory</h6>
+            <h6 class='navbar-heading text-muted'>Student</h6>
             <ul class='navbar-nav'>    
                 <li class='nav-item'>
-                    <a class='nav-link " . $string[2] . "' href='./supplier.php'>
-                        <i class='fa fa-industry' style='color: #ed213a;'></i> Supplier
+                    <a class='nav-link " . $string[2] . "' href='./bank.php'>
+                        <i class='fas fa-university text-blue'></i> Question Bank
                     </a>
                 </li>
                 <li class='nav-item'>
                     <a class='nav-link " . $string[3] . "' href='./categories.php'>
-                        <i class='ni ni-bullet-list-67 text-red'></i> Categories
+                        <i class='ni ni-bullet-list-67 text-red'></i> Points
                     </a>
                 </li>
                 <li class='nav-item'>
@@ -129,14 +125,16 @@ class Dashboard {
             </ul>
             <!-- Divider -->
             <hr class='my-3 $hide'>
-            <!-- Heading -->
-            <h6 class='navbar-heading text-muted $hide'>Services</h6>
             <!-- Navigation -->
             <ul class='navbar-nav mb-md-3'>
                 <li class='nav-item $hide'>
-                    <a class='nav-link " . $string[8] . "' href='settings.php'>
-                        <i class='fa fa-cog'></i> Settings
-                    </a>
+                    <div class='row m-0 p-0'>
+                        <div class='col-1'></div>
+                        <div class='col-10'>
+                            <input type='checkbox' checked data-toggle='toggle' data-onstyle='primary' data-size='normal' data-on='Light Mode' data-off='Dark Mode'/>
+                        </div>
+                        <div class='col-1'></div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -167,7 +165,7 @@ class Dashboard {
                     <a class='nav-link pr-0' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                         <div class='media align-items-center'>
                 <span class='avatar avatar-sm rounded-circle bg-transparent'>
-                    <i class='fa fa-user-circle fa-2x text-dark'></i>
+                    <i class='fa fa-user-circle fa-2x text-white'></i>
                 </span>
                             <div class='media-body ml-2 d-none d-lg-block'>
                                 <span class='mb-0 text-sm  font-weight-bold'>" . $name . "</span>
