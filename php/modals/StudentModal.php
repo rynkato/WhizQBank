@@ -4,8 +4,8 @@
 class StudentModal {
 
     function getStudentInformation($info) {
-        if(isset($_SESSION["UserType"]) && isset($_SESSION["User_Email"])) {
-            if($_SESSION["UserType"] === "STUDENT") {
+        if(isset($_SESSION["User_Type"]) && isset($_SESSION["User_Email"])) {
+            if($_SESSION["User_Type"] === "STUDENT") {
                 $DatabaseHandler = new DatabaseHandler();
                 $connection = $DatabaseHandler->getMySQLiConnection();
 
@@ -29,6 +29,8 @@ class StudentModal {
             $response['error'] = true;
             $response['message'] = "It seems like there was an issue with the sessions. Try to log in again :)";
         }
+
+        return $response;
     }
 
 }

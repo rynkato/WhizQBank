@@ -1,3 +1,3 @@
 <?php
 
-DEFINE("SITE_NAME", "Whiz QBank");
+DEFINE("SITE_NAME", "whizQbank");

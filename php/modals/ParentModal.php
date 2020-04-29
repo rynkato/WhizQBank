@@ -4,8 +4,8 @@
 class ParentModal {
 
     function getParentInformation($info) {
-        if(isset($_SESSION["UserType"]) && isset($_SESSION["User_Email"])) {
-            if($_SESSION["UserType"] === "PARENT") {
+        if(isset($_SESSION["User_Type"]) && isset($_SESSION["User_Email"])) {
+            if($_SESSION["User_Type"] === "PARENT") {
                 $DatabaseHandler = new DatabaseHandler();
                 $connection = $DatabaseHandler->getMySQLiConnection();
 
@@ -29,6 +29,8 @@ class ParentModal {
             $response['error'] = true;
             $response['message'] = "It seems like there was an issue with the sessions. Try to log in again :)";
         }
+
+        return $response;
     }
 
 }

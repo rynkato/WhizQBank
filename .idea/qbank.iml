@@ -11,5 +11,9 @@
     <orderEntry type="library" name="fontawesome" level="application" />
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="jquery.scrollbar" level="application" />
+    <orderEntry type="library" name="bootstrap.bundle" level="application" />
+    <orderEntry type="library" name="js.cookie" level="application" />
+    <orderEntry type="library" name="Chart.bundle" level="application" />
   </component>
 </module>

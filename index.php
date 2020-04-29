@@ -2,8 +2,6 @@
 
     include "php/Whiz.php";
 
-    session_start();
-
     $Whiz = new Whiz();
 
 
@@ -63,7 +61,7 @@
                                             echo "Parent: " . $_SESSION["User_Email"];
                                         }
                                     } else {
-                                        $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
+                                        echo $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
                                     }
                                 } else {
                                     echo $Whiz->getAlerts()->sendErrorMessage($response['message']);
@@ -72,8 +70,8 @@
                         ?>
 
                         <div class="mt-4">
-                            <img src="assets/images/logo.png" width="30px" alt="Whiz QBank"/>
-                            <h1 class="mt-4 ml-2 navbar-brand">Whiz QBank</h1>
+                            <img class="mb-2" src="assets/images/logo.png" width="30px" alt="Whiz QBank"/>
+                            <h1 class="mt-4 ml-2 navbar-brand"><?php echo SITE_NAME; ?></h1>
 
                             <h3 class="mt-5 pl-1 text-purple">Log in.</h3>
                             <h5 class="text-black-50 pl-1">Ready to head back in?</h5>
@@ -81,13 +79,13 @@
                             <form method="post">
                                 <div class="input-field mt-5">
                                     <i class="far fa-envelope prefix"></i>
-                                    <input id="email_input" name="email_input" type="email" class="validate w-75"/>
+                                    <input id="email_input" name="email_input" type="email" class="validate w-75" required />
                                     <label for="email_input">Email Address</label>
                                 </div>
 
                                 <div class="input-field mt-4">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input id="password_input" name="password_input" type="password" class="validate w-75"/>
+                                    <input id="password_input" name="password_input" type="password" class="validate w-75" required />
                                     <label for="password_input">Password</label>
                                 </div>
 

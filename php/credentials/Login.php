@@ -46,7 +46,7 @@ class Login {
                 if(password_verify($pswd, $pswdHash)) {
                     $response['error'] = false;
 
-                    $Whiz->getCredentials()->getSessions()->setSession("UserType", "PARENT");
+                    $Whiz->getCredentials()->getSessions()->setSession("User_Type", "PARENT");
                     $Whiz->getCredentials()->getSessions()->setSession("User_Email", $email);
                 } else {
                     $response['error'] = true;

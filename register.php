@@ -88,7 +88,6 @@
                                     <h3 class="mt-4 pl-1 text-purple text-right">Register</h3>
                                     <h5 class="text-black-50 pl-1 text-right">We can't wait for you to join us!</h5>
                                 </div>
-
                             </div>
 
                             <form method="post">
