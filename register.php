@@ -150,6 +150,48 @@
                                             <input id="p_cpassword_input" name="p_cpassword_input" type="password" class="validate w-75" required/>
                                             <label for="p_cpassword_input">Confirm Password</label>
                                         </div>
+
+                                        <div class="input-field">
+                                            <i class="fas fa-map-marker-alt prefix"></i>
+                                            <input id="p_address_1_input" name="p_address_1_input" type="text" class="validate w-75" required/>
+                                            <label for="p_address_1_input">Address - Line 1</label>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <i class="fas fa-map-marker-alt prefix"></i>
+                                            <input id="p_address_2_input" name="p_address_2_input" type="text" class="validate w-75" required/>
+                                            <label for="p_address_2_input">Address - Line 2</label>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <i class="fas fa-map-marker-alt prefix"></i>
+                                            <input id="p_address_postcode_input" name="p_address_postcode_input" type="number" min="0" class="validate w-75" required/>
+                                            <label for="p_address_postcode_input">Postcode</label>
+                                        </div>
+
+                                        <div class="input-field w-75 center-block">
+                                            <select>
+                                                <option value="" disabled selected>Choose your state</option>
+                                                <option value="Johor">Johor</option>
+                                                <option value="Kedah">Kedah</option>
+                                                <option value="Kelantan">Kelantan</option>
+                                                <option value="Malacca">Malacca</option>
+                                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                                <option value="Pahang">Pahang</option>
+                                                <option value="Penang">Penang</option>
+                                                <option value="Perak">Perak</option>
+                                                <option value="Perlis">Perlis</option>
+                                                <option value="Selangor">Selangor</option>
+                                                <option value="Terengganu">Terengganu</option>
+                                                <option value="Sabah">Sabah</option>
+                                                <option value="Sarawak">Sarawak</option>
+                                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                                <option value="Labuan">Labuan</option>
+                                                <option value="Putrajaya">Putrajaya</option>
+                                            </select>
+                                            <label>State</label>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -209,6 +251,8 @@
                 setTimeout(function() {
                     $(".alert").alert('close');
                 }, 2000);
+
+                $('select').formSelect();
             });
         </script>
     </body>

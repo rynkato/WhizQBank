@@ -25,6 +25,11 @@
     color: #5e72e4 !important;
 }
 
+/* Select Color */
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #5e72e4 !important;
+}
+
 /* Date Picker */
 .datepicker-date-display {
     background-color: #5e72e4;

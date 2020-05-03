@@ -76,28 +76,44 @@
                             <div id="leaderboard-content" class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">English</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">English</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Bahasa Melayu</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Bahasa Melayu</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Science</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Science</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Chemistry</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Chemistry</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Physics</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Physics</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Biology</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Biology</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Additional Mathematics</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Additional Mathematics</button>
+                                        </a>
                                     </div>
                                     <div class="col-4 text-center mb-5">
-                                        <a class="text-lg" href="">Sejarah</a>
+                                        <a href="">
+                                            <button class="btn btn-outline-primary text-lg btn-block">Sejarah</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

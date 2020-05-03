@@ -29,7 +29,7 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-12 col-lg-5">
+            <div class="col-12 col-lg-5 my-auto">
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10">
@@ -37,12 +37,7 @@
                         <?php
 
                             if(isset($_SESSION['User_Type'])) {
-                                if($_SESSION['User_Type'] === "STUDENT") {
-                                    echo "Student: " . $_SESSION["User_Email"];
-                                } elseif($_SESSION['User_Type'] === "PARENT") {
-                                    echo "Parent: " . $_SESSION["User_Email"];
-                                }
-
+                                header('Location: /qbank/dashboard/dashboard.php');
                             } else {
                                 $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
                             }
@@ -55,11 +50,7 @@
 
                                 if(!$response['error']) {
                                     if(isset($_SESSION['User_Type'])) {
-                                        if($_SESSION['User_Type'] === "STUDENT") {
-                                            echo "Student: " . $_SESSION["User_Email"];
-                                        } elseif($_SESSION['User_Type'] === "PARENT") {
-                                            echo "Parent: " . $_SESSION["User_Email"];
-                                        }
+                                        header('Location: /qbank/dashboard/dashboard.php');
                                     } else {
                                         echo $Whiz->getAlerts()->sendErrorMessage("The sessions were not set properly.");
                                     }
@@ -118,18 +109,22 @@
 
             </div>
             <div class="col-12 d-none d-lg-block col-lg-7 bg-dark min-vh-100 mb-n5">
-                <br/><br/><br/><br/><br/><br/><br/> <!-- Lazy code, I know :') -->
-                <h1 class="display-4 text-center text-purple mt-5 font-weight-light">Welcome to Whiz QBank.</h1>
-                <h5 class="text-white text-center font-weight-light">Are you new here? Register now!</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <br/><br/><br/><br/><br/><br/><br/> <!-- Lazy code, I know :') -->
+                        <h1 class="display-4 text-center text-purple mt-5 font-weight-light">Welcome to Whiz QBank.</h1>
+                        <h5 class="text-white text-center font-weight-light">Are you new here? Register now!</h5>
 
-                <div class="row mt-5">
-                    <div class="col-5"></div>
-                    <div class="col-2">
-                        <button class="btn btn-purple w-100" onclick="location.href = 'register.php';">Register</button>
+                        <div class="row mt-5">
+                            <div class="col-5"></div>
+                            <div class="col-2">
+                                <button class="btn btn-purple w-100" onclick="location.href = 'register.php';">Register</button>
+                            </div>
+                            <div class="col-5"></div>
+                        </div>
                     </div>
-                    <div class="col-5"></div>
+                    
                 </div>
-
             </div>
         </div>
 
